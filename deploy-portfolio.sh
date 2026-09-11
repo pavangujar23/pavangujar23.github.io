@@ -10,6 +10,37 @@
 #  First-time setup — set your token once in your shell profile:
 #    echo 'export GITHUB_TOKEN="ghp_your_token_here"' >> ~/.zshrc
 #    source ~/.zshrc
+
+
+# cd /Documents
+# cd: no such file or directory: /Documents
+# pgujar@Pavans-MacBook-Pro compliance-ci-charts % cd /Users/pgujar/Documents/Payslip
+
+# pgujar@Pavans-MacBook-Pro Payslip % ./deploy-portfolio.sh
+
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+#   🚀  Portfolio Deploy Script
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+# ✓ Source file found: /Users/pgujar/Documents/Payslip/pavan-gujar-portfolio.html
+# ✓ Local repo exists, pulling latest...
+# Already up to date.
+# Your commit was protected by Block Secrets powered by IBM Vault Radar.
+# [main 81af05a] Update portfolio - 2026-09-11 11:29
+#  1 file changed, 2 insertions(+), 2 deletions(-)
+
+#   Pushing to GitHub...
+# To https://github.com/pavangujar23/pavangujar23.github.io.git
+#    b1f90aa..81af05a  main -> main
+# branch 'main' set up to track 'origin/main'.
+
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+#   ✅  Deployed successfully!
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+#   🌐  Live URL  : https://pavangujar23.github.io
+#   📦  Repo      : https://github.com/pavangujar23/pavangujar23.github.io
+#   ⏱   GitHub Pages rebuilds in ~30–60 seconds.
 # =============================================================
 
 set -e  # exit on any error
