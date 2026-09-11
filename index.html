@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pavan Gujar — Backend & Cloud Infrastructure Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0F1B2B;
+    --surface:#16233A;
+    --surface-2:#1C2C46;
+    --line:#2A3B57;
+    --text:#EDEFF3;
+    --muted:#93A1B8;
+    --amber:#E8A33D;
+    --teal:#4FB286;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--ink);
+    color:var(--text);
+    font-family:'IBM Plex Sans', sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:800px; margin:0 auto; padding:0 24px;}
+  a{color:var(--amber); text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  a:focus-visible, button:focus-visible{outline:2px solid var(--amber); outline-offset:3px;}
+
+  .path{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.8rem;
+    color:var(--muted);
+    letter-spacing:0.02em;
+  }
+
+  /* ---------- HERO ---------- */
+  header.hero{
+    padding:96px 0 64px;
+    border-bottom:1px solid var(--line);
+  }
+  .terminal{
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:6px;
+    overflow:hidden;
+    margin-bottom:40px;
+  }
+  .terminal-bar{
+    display:flex; gap:6px; align-items:center;
+    padding:9px 14px;
+    border-bottom:1px solid var(--line);
+    background:var(--surface-2);
+  }
+  .dot{width:9px; height:9px; border-radius:50%;}
+  .dot.r{background:#E5645A;} .dot.y{background:#E8B93D;} .dot.g{background:#4FB286;}
+  .terminal-body{
+    padding:18px 20px 22px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.88rem;
+    color:var(--teal);
+  }
+  .terminal-body .prompt{color:var(--muted);}
+  .cursor{display:inline-block; width:8px; height:1em; background:var(--amber); vertical-align:text-bottom; animation:blink 1s steps(1) infinite;}
+  @keyframes blink{50%{opacity:0;}}
+
+  h1{
+    font-size:2.6rem;
+    line-height:1.15;
+    margin:0 0 10px;
+    font-weight:700;
+    letter-spacing:-0.01em;
+  }
+  .role{
+    font-size:1.15rem;
+    color:var(--muted);
+    margin:0 0 28px;
+    max-width:52ch;
+  }
+  .hero-links{display:flex; flex-wrap:wrap; gap:10px;}
+  .pill{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.82rem;
+    padding:8px 14px;
+    border:1px solid var(--line);
+    border-radius:20px;
+    color:var(--text);
+  }
+  .pill:hover{border-color:var(--amber); text-decoration:none;}
+
+  section{padding:64px 0;}
+  section + section{border-top:1px solid var(--line);}
+  h2{
+    font-size:1.05rem;
+    font-family:'IBM Plex Mono', monospace;
+    color:var(--muted);
+    margin:0 0 28px;
+    font-weight:500;
+  }
+  h2 span{color:var(--amber);}
+
+  /* ---------- STATS ---------- */
+  .stats{display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line); border:1px solid var(--line); border-radius:6px; overflow:hidden;}
+  .stat{background:var(--surface); padding:26px 20px;}
+  .stat .num{font-family:'IBM Plex Mono', monospace; font-size:1.9rem; color:var(--amber); font-weight:600;}
+  .stat .label{color:var(--muted); font-size:0.86rem; margin-top:6px;}
+
+  /* ---------- TIMELINE ---------- */
+  .timeline{border-left:2px solid var(--line); margin-left:6px; padding-left:28px;}
+  .node{position:relative; padding-bottom:34px;}
+  .node:last-child{padding-bottom:0;}
+  .node::before{
+    content:''; position:absolute; left:-34px; top:4px;
+    width:11px; height:11px; border-radius:50%;
+    background:var(--ink); border:2px solid var(--amber);
+  }
+  .node .when{font-family:'IBM Plex Mono', monospace; font-size:0.8rem; color:var(--muted);}
+  .node h3{margin:2px 0 4px; font-size:1.1rem;}
+  .node p{margin:0; color:var(--muted); font-size:0.94rem; max-width:60ch;}
+
+  /* ---------- CASE STUDIES ---------- */
+  .case{
+    border:1px solid var(--line);
+    border-radius:6px;
+    background:var(--surface);
+    margin-bottom:20px;
+    overflow:hidden;
+  }
+  .case-head{
+    padding:16px 20px;
+    border-bottom:1px solid var(--line);
+    display:flex; justify-content:space-between; align-items:baseline; gap:16px;
+    flex-wrap:wrap;
+  }
+  .case-head h3{margin:0; font-size:1.05rem;}
+  .status{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.75rem;
+    color:var(--teal);
+    border:1px solid var(--teal);
+    border-radius:4px;
+    padding:2px 8px;
+    white-space:nowrap;
+  }
+  .case-body{padding:18px 20px;}
+  .case-body p{margin:0 0 10px; color:var(--muted); font-size:0.94rem;}
+  .case-body p:last-child{margin-bottom:0;}
+  .case-body strong{color:var(--text);}
+  .case-label{font-family:'IBM Plex Mono', monospace; font-size:0.72rem; color:var(--amber); text-transform:lowercase;}
+
+  /* ---------- PROJECTS ---------- */
+  .project-grid{display:grid; grid-template-columns:1fr 1fr; gap:16px;}
+  .project-card{
+    border:1px solid var(--line);
+    border-radius:6px;
+    background:var(--surface);
+    padding:18px 20px;
+    display:flex;
+    flex-direction:column;
+  }
+  .project-card h3{margin:0 0 8px; font-size:1rem;}
+  .project-card h3 a{color:var(--text);}
+  .project-card h3 a:hover{color:var(--amber); text-decoration:none;}
+  .project-card p{margin:0 0 14px; color:var(--muted); font-size:0.89rem; flex-grow:1;}
+  .project-tags{display:flex; flex-wrap:wrap; gap:6px; margin-bottom:10px;}
+  .project-tags span{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.7rem;
+    color:var(--teal);
+    border:1px solid var(--line);
+    border-radius:3px;
+    padding:2px 6px;
+  }
+  .project-card .repo-link{font-family:'IBM Plex Mono', monospace; font-size:0.78rem;}
+  .labs-note{
+    margin-top:16px;
+    color:var(--muted);
+    font-size:0.86rem;
+    border-left:2px solid var(--line);
+    padding-left:14px;
+  }
+  .labs-note a{color:var(--muted); text-decoration:underline;}
+
+  /* ---------- SKILLS ---------- */
+  .skill-group{margin-bottom:20px;}
+  .skill-group h3{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.82rem;
+    color:var(--muted);
+    font-weight:500;
+    margin:0 0 10px;
+  }
+  .tags{display:flex; flex-wrap:wrap; gap:8px;}
+  .tag{
+    font-size:0.85rem;
+    padding:6px 12px;
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:4px;
+  }
+
+  /* ---------- WRITING ---------- */
+  .write-link{
+    display:block;
+    padding:16px 20px;
+    border:1px solid var(--line);
+    border-radius:6px;
+    background:var(--surface);
+    margin-bottom:12px;
+  }
+  .write-link:hover{border-color:var(--amber); text-decoration:none;}
+  .write-link .path{display:block; margin-bottom:4px;}
+  .write-link span.title{color:var(--text); font-size:1rem; font-weight:500;}
+
+  footer{padding:56px 0 80px; text-align:left;}
+  footer p{color:var(--muted); font-size:0.9rem;}
+  footer .contact-links{margin-top:14px; display:flex; gap:18px; flex-wrap:wrap;}
+
+  @media (max-width:640px){
+    header.hero{padding:64px 0 48px;}
+    h1{font-size:2rem;}
+    .stats{grid-template-columns:1fr;}
+    .case-head{flex-direction:column; align-items:flex-start;}
+    .project-grid{grid-template-columns:1fr;}
+  }
+  @media (prefers-reduced-motion: reduce){
+    .cursor{animation:none; opacity:1;}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="terminal">
+      <div class="terminal-bar">
+        <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+      </div>
+      <div class="terminal-body">
+        <span class="prompt">$</span> deploy status --service=breakglass<br>
+        <span class="prompt">›</span> uptime: stable · data loss: 0 · rollback: none needed<span class="cursor"></span>
+      </div>
+    </div>
+    <h1>Pavan Gujar</h1>
+    <p class="role">Backend &amp; cloud infrastructure engineer. I build Go and PostgreSQL systems that stay up when everything else is on fire — and the CI/CD pipelines that ship them safely.</p>
+    <div class="hero-links">
+      <a class="pill" href="mailto:pavanraogujar@gmail.com">✉ pavanraogujar@gmail.com</a>
+      <a class="pill" href="https://linkedin.com/in/pavan-gujar-b8a2b918a" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="pill" href="https://github.com/pavangujar23" target="_blank" rel="noopener">GitHub</a>
+      <a class="pill" href="https://medium.com/@REPLACE_WITH_YOUR_HANDLE" target="_blank" rel="noopener">Medium</a>
+    </div>
+  </div>
+</header>
+
+<section id="stats">
+  <div class="wrap">
+    <h2><span>~/</span>impact</h2>
+    <div class="stats">
+      <div class="stat">
+        <div class="num">0</div>
+        <div class="label">data loss on Breakglass audit logging through a major IBM Cloud outage</div>
+      </div>
+      <div class="stat">
+        <div class="num">99.99%</div>
+        <div class="label">IBM Cloud availability target sustained for OSS Services</div>
+      </div>
+      <div class="stat">
+        <div class="num">120+ hrs</div>
+        <div class="label">structured learning completed in 2025 — Bronze badge</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <h2><span>~/</span>experience</h2>
+    <div class="timeline">
+      <div class="node">
+        <div class="when">Oct 2024 — Present</div>
+        <h3>Senior Software Engineer, IBM</h3>
+        <p>Cloud OSS &amp; Compliance Services. Migrated audit logging off ELK onto PostgreSQL, modernized CI/CD on OnePipeline, and led a zero-downtime move to VPC/ROKS (Dreadnought).</p>
+      </div>
+      <div class="node">
+        <div class="when">Jul 2021 — Sep 2024</div>
+        <h3>Lead Software Engineer, Tata Communications</h3>
+        <p>Golang, PostgreSQL, and Gin microservices built on hexagonal architecture — API design, database optimization, and containerized deployments.</p>
+      </div>
+      <div class="node">
+        <div class="when">2019 — 2021</div>
+        <h3>Senior Analyst, Capgemini</h3>
+        <p>Built the Go/Gin backend for a CPQ system generating medical-equipment quotations, using microservices and hexagonal architecture.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="case-studies">
+  <div class="wrap">
+    <h2><span>~/</span>case-studies</h2>
+
+    <div class="case">
+      <div class="case-head">
+        <h3>Breakglass audit logs: ELK → PostgreSQL</h3>
+        <span class="status">zero data loss</span>
+      </div>
+      <div class="case-body">
+        <p class="case-label">context</p>
+        <p>Breakglass audit logging ran on ELK — heavy to operate and fragile exactly when it mattered most, during incidents.</p>
+        <p class="case-label">what I did</p>
+        <p>Designed a PostgreSQL schema and a high-throughput batch-ingestion pipeline with <strong>conflict-safe upserts</strong> (<code>ON CONFLICT DO UPDATE</code>), and tuned indexes for fast audit retrieval.</p>
+        <p class="case-label">result</p>
+        <p>The system kept ingesting with <strong>zero data loss</strong> through a major IBM Cloud outage, and the operational footprint got simpler.</p>
+      </div>
+    </div>
+
+    <div class="case">
+      <div class="case-head">
+        <h3>TIP service: retiring Elasticsearch</h3>
+        <span class="status">cost eliminated</span>
+      </div>
+      <div class="case-body">
+        <p class="case-label">context</p>
+        <p>TIP depended on Elasticsearch, adding license cost and one more system to keep healthy.</p>
+        <p class="case-label">what I did</p>
+        <p>Refactored the service to run on <strong>PostgreSQL</strong> instead.</p>
+        <p class="case-label">result</p>
+        <p>Eliminated the third-party licensing cost and reduced the service's operational surface area.</p>
+      </div>
+    </div>
+
+    <div class="case">
+      <div class="case-head">
+        <h3>Dreadnought migration: IKS → VPC/ROKS</h3>
+        <span class="status">zero downtime</span>
+      </div>
+      <div class="case-body">
+        <p class="case-label">context</p>
+        <p>IBM Cloud architecture required moving all OSS Dev/Test/Prod environments off the legacy IKS/Classic IaaS stack.</p>
+        <p class="case-label">what I did</p>
+        <p>Restructured Helm charts to cut config drift, hardened CI/CD on OnePipeline with registry migration and automated scanning, and coordinated the Dev → Stage → Prod cutovers.</p>
+        <p class="case-label">result</p>
+        <p>Completed the full migration to VPC/ROKS with <strong>zero-downtime cutovers</strong> and better environment parity.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <h2><span>~/</span>projects</h2>
+    <div class="project-grid">
+
+      <div class="project-card">
+        <h3><a href="https://github.com/pavangujar23/pulsedb" target="_blank" rel="noopener">PulseDB</a></h3>
+        <div class="project-tags"><span>Go</span><span>PostgreSQL WAL</span><span>Kafka</span><span>Redis</span></div>
+        <p>Real-time database change intelligence platform. Streams PostgreSQL WAL changes through Kafka, classifies them, and flags anomalies — write spikes via z-score, schema drift — exposed over REST, gRPC, and WebSocket, with Prometheus metrics.</p>
+        <a class="repo-link" href="https://github.com/pavangujar23/pulsedb" target="_blank" rel="noopener">github.com/pavangujar23/pulsedb →</a>
+      </div>
+
+      <div class="project-card">
+        <h3><a href="https://github.com/pavangujar23/jobhunt-ai" target="_blank" rel="noopener">JobHunt AI</a></h3>
+        <div class="project-tags"><span>Node.js</span><span>OpenAI API</span><span>Chrome Ext</span></div>
+        <p>Agentic career-assistant browser extension. Scores resume fit against a job listing and drafts tailored cover letters and recruiter emails — every change requires explicit approval before anything is sent.</p>
+        <a class="repo-link" href="https://github.com/pavangujar23/jobhunt-ai" target="_blank" rel="noopener">github.com/pavangujar23/jobhunt-ai →</a>
+      </div>
+
+      <div class="project-card">
+        <h3><a href="https://github.com/pavangujar23/task-management-api" target="_blank" rel="noopener">Task Management API</a></h3>
+        <div class="project-tags"><span>Go</span><span>DDD</span><span>TDD</span><span>Docker</span></div>
+        <p>A RESTful task API built with domain-driven design and full test-driven development — 100% test coverage across models, services, repositories, and handlers, with status workflow, filtering, and pagination.</p>
+        <a class="repo-link" href="https://github.com/pavangujar23/task-management-api" target="_blank" rel="noopener">github.com/pavangujar23/task-management-api →</a>
+      </div>
+
+      <div class="project-card">
+        <h3><a href="https://github.com/pavangujar23/price-alert-extension" target="_blank" rel="noopener">PriceWatch</a></h3>
+        <div class="project-tags"><span>JavaScript</span><span>Chrome Ext</span></div>
+        <p>Browser extension that tracks prices across nine Indian shopping sites — Amazon, Flipkart, Myntra, and more — logs price history, and emails you the moment something drops below your target price.</p>
+        <a class="repo-link" href="https://github.com/pavangujar23/price-alert-extension" target="_blank" rel="noopener">github.com/pavangujar23/price-alert-extension →</a>
+      </div>
+
+    </div>
+    <p class="labs-note">Also maintaining a <a href="https://github.com/pavangujar23/kind-cluster-stup" target="_blank" rel="noopener">multi-node kind cluster config</a> (control-plane + 3 workers) for local Kubernetes testing.</p>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <h2><span>~/</span>skills</h2>
+
+    <div class="skill-group">
+      <h3>languages &amp; data</h3>
+      <div class="tags">
+        <span class="tag">Go (Golang)</span><span class="tag">Python</span><span class="tag">PostgreSQL</span><span class="tag">pgx</span><span class="tag">SQL</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <h3>cloud &amp; platform</h3>
+      <div class="tags">
+        <span class="tag">Kubernetes</span><span class="tag">Docker</span><span class="tag">Helm</span><span class="tag">VPC/ROKS</span><span class="tag">OnePipeline (CI/CD)</span><span class="tag">IBM Cloud</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <h3>practices</h3>
+      <div class="tags">
+        <span class="tag">Microservices</span><span class="tag">Hexagonal Architecture</span><span class="tag">REST APIs</span><span class="tag">TDD</span><span class="tag">Observability</span><span class="tag">Risk &amp; Compliance</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <h3>currently learning</h3>
+      <div class="tags">
+        <span class="tag">CKAD</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="writing">
+  <div class="wrap">
+    <h2><span>~/</span>writing</h2>
+    <a class="write-link" href="https://medium.com/@REPLACE_WITH_YOUR_HANDLE" target="_blank" rel="noopener">
+      <span class="path">medium.com</span>
+      <span class="title">Notes on backend engineering, PostgreSQL, and Kubernetes →</span>
+    </a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p class="path">~/contact</p>
+    <p>Open to backend and cloud infrastructure work — full-time or contract.</p>
+    <div class="contact-links">
+      <a href="mailto:pavanraogujar@gmail.com">Email</a>
+      <a href="https://linkedin.com/in/pavan-gujar-b8a2b918a" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/pavangujar23" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
